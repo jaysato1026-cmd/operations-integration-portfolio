@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT 基礎架構與營運 — 公開去敏作品集</title>
+  <style>
+    :root { --ink:#142235; --muted:#64758b; --paper:#f6f7f9; --line:#d9e0e8; --blue:#1469b8; --deep:#0c355c; --safe:#287748; --card:#fff; --warn:#8a5a00; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.55 "Segoe UI","Microsoft JhengHei",sans-serif; }
+    .wrap { max-width:1180px; margin:auto; padding:42px 30px 60px; }
+    .kicker { letter-spacing:.12em; font-size:11px; font-weight:800; color:var(--blue); }
+    h1 { font-size:clamp(28px,4vw,48px); line-height:1.12; margin:9px 0 17px; max-width:900px; }
+    .intro { font-size:17px; color:#3d526a; max-width:790px; }
+    .bar { margin:29px 0 34px; padding:13px 16px; border-left:4px solid var(--safe); background:#edf8f0; color:#23593a; font-weight:650; }
+    .bar-warn { border-left-color:var(--warn); background:#fff8e8; color:#6b4a00; margin-top:14px; font-weight:600; font-size:14px; }
+    .section-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px; border-bottom:1px solid var(--line); padding-bottom:9px; margin-bottom:18px; }
+    h2 { font-size:21px; margin:0; }
+    .section-head span { font-size:12px; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .work { display:grid; grid-template-columns:200px 1fr; background:var(--card); border:1px solid var(--line); box-shadow:0 6px 20px rgba(26,44,65,.06); min-height:185px; }
+    .shot { width:200px; height:100%; min-height:160px; object-fit:cover; object-position:left top; border-right:1px solid var(--line); background:#0e1b2f; }
+    .content { padding:17px 18px; }
+    .label { font-size:10px; color:var(--blue); letter-spacing:.08em; font-weight:800; }
+    .content h3 { font-size:18px; line-height:1.22; margin:4px 0 8px; }
+    .content p { font-size:13px; color:#526278; margin:0 0 12px; }
+    .tags { font-size:11px; color:#45617b; font-weight:650; }
+    .content a { display:inline-block; margin-top:12px; margin-right:14px; font-size:13px; font-weight:800; color:var(--deep); text-decoration:none; border-bottom:1px solid #6a97be; }
+    .pdf-box { margin:0 0 34px; padding:18px 20px; background:var(--card); border:1px solid var(--line); border-radius:4px; }
+    .pdf-box p { margin:0 0 12px; color:#526278; font-size:14px; }
+    .pdf-box a { font-weight:800; color:var(--deep); font-size:15px; }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-bottom:8px; }
+    .gallery figure { margin:0; background:var(--card); border:1px solid var(--line); overflow:hidden; }
+    .gallery img { width:100%; height:120px; object-fit:cover; object-position:left top; display:block; background:#0e1b2f; }
+    .gallery figcaption { padding:8px 10px; font-size:11px; color:var(--muted); }
+    .method { margin-top:38px; display:grid; grid-template-columns:1.1fr 1fr; gap:38px; border-top:1px solid var(--line); padding-top:28px; }
+    .method p { color:#526278; margin:7px 0; }
+    .check { padding-left:18px; margin:9px 0; color:#40536b; }
+    .foot { margin-top:44px; padding-top:16px; border-top:1px solid var(--line); font-size:12px; color:#718198; }
+    @media (max-width:900px) { .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:760px) { .wrap { padding:28px 18px; } .grid,.method { grid-template-columns:1fr; } .work { grid-template-columns:1fr; } .shot { width:100%; height:140px; } .gallery { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="kicker">PUBLIC-SAFE · SYNTHETIC ONLY · 2026-08-23</div>
+    <h1>IT 基礎架構與營運<br>可交接的診斷與整合能力</h1>
+    <p class="intro">以多據點零售 IT 維運、監控整合、跨層根因分析與工作流程自動化為主軸。下列展示皆由合成資料重建，呈現方法、責任範圍與技術判讀，不含雇主、正式營運或內網資訊。</p>
+    <div class="bar">公開邊界：所有畫面均為 Synthetic / De-identified Demo；不含內網、真實日誌、交易、會員、員工、帳務、帳號或連線設定。</div>
+    <div class="bar-warn">Synthetic demo note：互動頁與截圖皆由本機靜態 HTML（file://）與 Edge headless 產生；未連接任何正式營運主機或 production port。</div>
+
+    <section class="pdf-box">
+      <h2 style="margin:0 0 10px;font-size:18px;">POS 日誌分析 — 合成 PDF</h2>
+      <p>503 KB 去敏展示文件，供履歷附件与作品集引用。内容仅为方法与合成范例，非正式交易资料。</p>
+      <a href="POS_Log_Analysis_Synthetic_Demo_20260822.pdf">下載 POS_Log_Analysis_Synthetic_Demo_20260822.pdf</a>
+    </section>
+
+    <div class="section-head"><h2>去敏技術展示</h2><span>6 個本機靜態 Demo + Edge headless 合成截圖（2026-08-23）</span></div>
+    <section class="grid">
+      <article class="work">
+        <img class="shot" src="screenshots/pos-log-analysis-synthetic-20260823.png" alt="POS 日誌分析合成展示">
+        <div class="content">
+          <div class="label">DIAGNOSTICS</div>
+          <h3>POS 日誌分析工具</h3>
+          <p>多格式正規化、條件篩選、例外群組與可追查診斷線索（SITE-A/B/C 合成）。</p>
+          <div class="tags">Python · Flask · JSON · CSV · 並行掃描</div>
+          <a href="demos/pos-log-analysis-demo.html">開啟 Demo</a>
+          <a href="POS_Log_Analysis_Synthetic_Demo_20260822.pdf">PDF</a>
+        </div>
+      </article>
+      <article class="work">
+        <img class="shot" src="screenshots/ocs-librenms-correlation-synthetic-20260823.png" alt="監控對照合成展示">
+        <div class="content">
+          <div class="label">OBSERVABILITY</div>
+          <h3>Agent × Network Monitor 對照</h3>
+          <p>交叉比對端點回報、監控狀態、資產匹配與原因分流（DEMO-OPS 合成）。</p>
+          <div class="tags">Monitoring · Asset Mapping · RCA</div>
+          <a href="demos/ocs-librenms-correlation-demo.html">開啟 Demo</a>
+        </div>
+      </article>
+      <article class="work">
+        <img class="shot" src="screenshots/connection-monitoring-synthetic-20260823.png" alt="連線監控合成展示">
+        <div class="content">
+          <div class="label">ENDPOINT OPERATIONS</div>
+          <h3>Windows 連線監控</h3>
+          <p>週期盤點、規則式例外、可稽核摘要與保留策略（DEMO-CLIENT 合成）。</p>
+          <div class="tags">Windows · Monitoring · Logging</div>
+          <a href="demos/connection-monitoring-demo.html">開啟 Demo</a>
+        </div>
+      </article>
+      <article class="work">
+        <img class="shot" src="screenshots/backup-verification-synthetic-20260823.png" alt="備份驗證合成展示">
+        <div class="content">
+          <div class="label">RESILIENCE</div>
+          <h3>備份與驗證管理</h3>
+          <p>排程、複製、驗證、保留與可稽核結果的流程化設計。</p>
+          <div class="tags">Windows Automation · Backup · Validation</div>
+          <a href="demos/backup-verification-demo.html">開啟 Demo</a>
+        </div>
+      </article>
+      <article class="work">
+        <img class="shot" src="screenshots/service-request-workflow-synthetic-20260823.png" alt="報修流程合成展示">
+        <div class="content">
+          <div class="label">WORKFLOW</div>
+          <h3>服務請求流程</h3>
+          <p>案件提交、狀態追蹤、歷程查詢與管理端處理的流程原型。</p>
+          <div class="tags">Python · Flask · Workflow</div>
+          <a href="demos/service-request-workflow-demo.html">開啟 Demo</a>
+        </div>
+      </article>
+      <article class="work">
+        <img class="shot" src="screenshots/real-time-queue-synthetic-20260823.png" alt="即時叫號合成展示">
+        <div class="content">
+          <div class="label">REAL-TIME SYSTEMS</div>
+          <h3>即時叫號系統</h3>
+          <p>自助取號、即時事件推送、管理控制與顯示流程整合。</p>
+          <div class="tags">Flask · Socket.IO · SQLite</div>
+          <a href="demos/real-time-queue-demo.html">開啟 Demo</a>
+        </div>
+      </article>
+    </section>
+
+    <div class="section-head" style="margin-top:36px;"><h2>截圖畫廊</h2><span>6 張合成 PNG · 2026-08-23 session</span></div>
+    <section class="gallery" aria-label="Screenshot gallery">
+      <figure><img src="screenshots/pos-log-analysis-synthetic-20260823.png" alt="POS log analysis"><figcaption>POS 日誌分析</figcaption></figure>
+      <figure><img src="screenshots/connection-monitoring-synthetic-20260823.png" alt="Connection monitoring"><figcaption>連線監控</figcaption></figure>
+      <figure><img src="screenshots/ocs-librenms-correlation-synthetic-20260823.png" alt="Monitor correlation"><figcaption>監控對照</figcaption></figure>
+      <figure><img src="screenshots/backup-verification-synthetic-20260823.png" alt="Backup verification"><figcaption>備份驗證</figcaption></figure>
+      <figure><img src="screenshots/service-request-workflow-synthetic-20260823.png" alt="Service request"><figcaption>服務請求</figcaption></figure>
+      <figure><img src="screenshots/real-time-queue-synthetic-20260823.png" alt="Real-time queue"><figcaption>即時叫號</figcaption></figure>
+    </section>
+
+    <section class="method">
+      <div>
+        <h2>工作方法</h2>
+        <p>先定義影響範圍與時間線，再以監控、網路、應用、日誌及資料流程交叉驗證；修復後驗證結果、記錄判讀依據，並留下可交接的下一步。</p>
+      </div>
+      <div>
+        <h2>公開與 AI 使用原則</h2>
+        <ul class="check">
+          <li>AI 用於受限的問題拆解、摘要與審稿；所有結論須人工覆核。</li>
+          <li>公開資料只使用可重現的合成展示與經核實的能力敘述。</li>
+          <li>不把內部系統畫面、正式交易或雲端帳密納入公開作品。</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="foot">公開合成作品集 · 自包含 HTML（無外部 CDN）· 不連接任何正式系統或資料來源</footer>
+  </main>
+</body>
+</html>

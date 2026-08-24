@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POS Log Analysis Tool — Synthetic Data Demo</title>
+  <style>
+    :root { --bg:#07111f; --panel:#0e1b2f; --line:#223756; --text:#e8f0ff; --muted:#91a4c3; --cyan:#41d7ff; --lime:#8cef77; --amber:#ffc96b; --red:#ff7887; }
+    * { box-sizing:border-box; } body { margin:0; min-width:1120px; color:var(--text); font:14px/1.45 Inter,Segoe UI,"Microsoft JhengHei",sans-serif; background:radial-gradient(circle at 72% 0,#16375e 0,transparent 32%),var(--bg); }
+    .shell { padding:28px 38px 34px; } header { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; } h1 { font-size:25px; margin:0; letter-spacing:-.4px; } h1 span { color:var(--cyan); } .sub { margin-top:5px; color:var(--muted); } .badge { display:inline-flex; gap:8px; align-items:center; color:#b9ffb0; border:1px solid #39744a; background:#102d21; padding:8px 12px; border-radius:99px; font-weight:700; } .dot { width:8px; height:8px; background:var(--lime); border-radius:50%; box-shadow:0 0 14px var(--lime); }
+    .filters,.metrics,.grid { display:grid; gap:14px; } .filters { grid-template-columns:1.25fr 1fr 1fr 1fr auto; margin-bottom:16px; } .panel { background:linear-gradient(145deg,rgba(19,37,64,.94),rgba(10,23,43,.94)); border:1px solid var(--line); border-radius:15px; box-shadow:0 18px 45px rgba(0,0,0,.18); } .control { padding:13px 15px; } label { display:block; color:var(--muted); font-size:11px; margin-bottom:5px; text-transform:uppercase; letter-spacing:.08em; } .select { display:flex; justify-content:space-between; align-items:center; font-weight:650; } button { border:0; border-radius:11px; padding:0 20px; min-height:58px; cursor:default; font-weight:800; color:#042436; background:linear-gradient(135deg,#5de0ff,#67bfff); }
+    .metrics { grid-template-columns:repeat(4,1fr); margin-bottom:16px; } .metric { padding:16px 18px; position:relative; overflow:hidden; } .metric:after { content:""; position:absolute; inset:auto -12px -25px auto; width:95px; height:95px; border-radius:50%; background:var(--glow); opacity:.15; } .metric small { display:block; color:var(--muted); } .number { font-size:29px; font-weight:800; margin:4px 0; } .trend { color:var(--tone); font-size:12px; } .grid { grid-template-columns:1.35fr .9fr; } .chart,.events,.pipeline { padding:18px; } h2 { font-size:15px; margin:0 0 4px; } .hint { color:var(--muted); font-size:12px; } .bars { height:221px; display:flex; align-items:end; justify-content:space-between; gap:12px; padding:18px 8px 2px; background:repeating-linear-gradient(to bottom,transparent 0 54px,rgba(142,172,216,.12) 55px 56px); } .bar { flex:1; min-width:22px; height:var(--h); background:linear-gradient(#64dffd,#317ee6); border-radius:6px 6px 0 0; position:relative; } .bar.warn { background:linear-gradient(#ffd875,#f58c47); } .bar:after { content:attr(data-day); position:absolute; bottom:-23px; color:var(--muted); font-size:11px; left:50%; transform:translateX(-50%); } .legend { display:flex; gap:18px; margin-top:27px; color:var(--muted); font-size:12px; } .legend i { width:10px; height:10px; border-radius:3px; background:#4dbff1; display:inline-block; margin-right:6px; } .legend .warn { background:var(--amber); }
+    .events table { width:100%; border-collapse:collapse; margin-top:12px; } th,td { text-align:left; padding:9px 4px; border-bottom:1px solid rgba(125,160,204,.13); } th { color:var(--muted); font-size:11px; font-weight:600; } .sev { padding:3px 8px; border-radius:99px; font-size:11px; font-weight:800; } .medium { color:#ffdf9d; background:#4a3a1e; } .high { color:#ffb1ba; background:#47212c; } .site { color:#b7cbeb; } .pipeline { grid-column:1 / -1; display:grid; grid-template-columns:1.2fr repeat(4,1fr); align-items:center; gap:12px; } .pipeline h2 { margin:0; } .step { padding:12px; border:1px solid var(--line); border-radius:10px; background:#0b1830; min-height:62px; } .step b { display:block; color:var(--cyan); font-size:12px; } .step span { color:var(--muted); font-size:11px; } footer { color:#7891b8; margin-top:16px; font-size:11px; } code { color:#b8e9ff; }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div><h1>POS <span>Log Analysis</span> Tool</h1><div class="sub">Portfolio demonstration only · synthetic and de-identified data</div></div>
+      <div class="badge"><span class="dot"></span>展示用 · SYNTHETIC DATA ONLY</div>
+    </header>
+    <section class="filters">
+      <div class="panel control"><label>Data source</label><div class="select">Demo log bundle <span>⌄</span></div></div>
+      <div class="panel control"><label>Date range</label><div class="select">2026-08-01 → 08-07 <span>⌄</span></div></div>
+      <div class="panel control"><label>Scope</label><div class="select">All demo sites <span>⌄</span></div></div>
+      <div class="panel control"><label>Filter</label><div class="select">Errors & warnings <span>⌄</span></div></div>
+      <button>Run analysis</button>
+    </section>
+    <section class="metrics">
+      <article class="panel metric" style="--glow:#5ee6ff;--tone:#78e9ff"><small>Files processed</small><div class="number">1,248</div><div class="trend">UTF-8 / Big5 / JSON normalized</div></article>
+      <article class="panel metric" style="--glow:#8cef77;--tone:#a5fc91"><small>Records parsed</small><div class="number">38,426</div><div class="trend">Concurrent scan completed</div></article>
+      <article class="panel metric" style="--glow:#ffc96b;--tone:#ffd58a"><small>Diagnostic signals</small><div class="number">27</div><div class="trend">Rule-based exception grouping</div></article>
+      <article class="panel metric" style="--glow:#ff7887;--tone:#ff9ca8"><small>Review required</small><div class="number">3</div><div class="trend">Prioritized for follow-up</div></article>
+    </section>
+    <section class="grid">
+      <article class="panel chart"><h2>Exceptions by day</h2><div class="hint">Normalized diagnostic signals · synthetic dataset</div><div class="bars"><div class="bar" style="--h:41%" data-day="Mon"></div><div class="bar" style="--h:56%" data-day="Tue"></div><div class="bar warn" style="--h:79%" data-day="Wed"></div><div class="bar" style="--h:47%" data-day="Thu"></div><div class="bar" style="--h:35%" data-day="Fri"></div><div class="bar warn" style="--h:62%" data-day="Sat"></div><div class="bar" style="--h:29%" data-day="Sun"></div></div><div class="legend"><span><i></i>Standard exception</span><span><i class="warn"></i>Needs investigation</span></div></article>
+      <article class="panel events"><h2>Traceable exception queue</h2><div class="hint">No production locations, identities, transactions, or network data</div><table><thead><tr><th>Time</th><th>Demo source</th><th>Rule</th><th>Priority</th></tr></thead><tbody><tr><td>09:41</td><td class="site">SITE-B / bundle-07</td><td>Retry pattern</td><td><span class="sev medium">MEDIUM</span></td></tr><tr><td>10:12</td><td class="site">SITE-A / bundle-03</td><td>Payload parse failure</td><td><span class="sev high">HIGH</span></td></tr><tr><td>10:28</td><td class="site">SITE-C / bundle-11</td><td>Sequence gap</td><td><span class="sev medium">MEDIUM</span></td></tr><tr><td>11:06</td><td class="site">SITE-A / bundle-09</td><td>Encoding fallback</td><td><span class="sev medium">MEDIUM</span></td></tr></tbody></table></article>
+      <article class="panel pipeline"><div><h2>Analysis pipeline</h2><span class="hint">Source capabilities represented in a safe demo</span></div><div class="step"><b>01 · Detect</b><span>Encoding & input type</span></div><div class="step"><b>02 · Parse</b><span>Text / JSON objects</span></div><div class="step"><b>03 · Filter</b><span>Date & condition scope</span></div><div class="step"><b>04 · Diagnose</b><span>Grouped evidence & charts</span></div></article>
+    </section>
+    <footer>Portfolio demo · Built to show <code>Python / Flask / Tkinter / SQLite / JSON / CSV / concurrent processing / Matplotlib</code> without revealing production data.</footer>
+  </main>
+</body>
+</html>
